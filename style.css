@@ -1,0 +1,133 @@
+/* ================================
+   Variables globales
+================================ */
+:root {
+  --font-main: 'Poppins', sans-serif;
+  --color-bg: #fafafa;
+  --color-text: #333;
+  --color-primary: #6a0dad; /* violet moderne */
+  --color-primary-dark: #4b0082;
+  --color-white: #fff;
+  --color-shadow: rgba(0,0,0,0.1);
+}
+
+body {
+  font-family: var(--font-main);
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* ================================
+   Header
+================================ */
+header {
+  position: sticky;
+  top: 0;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 6px var(--color-shadow);
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: var(--color-bg);
+}
+
+/* ================================
+   Grille Produits
+================================ */
+.grid-produits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.produit {
+  background: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--color-shadow);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.produit:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--color-shadow);
+}
+
+.produit img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.produit img:hover {
+  transform: scale(1.05);
+}
+
+.produit h3 {
+  margin: 1rem 0 0.5rem;
+  color: var(--color-primary);
+}
+
+.produit p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* ================================
+   Boutons
+================================ */
+.btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background: var(--color-primary-dark);
+  transform: scale(1.05);
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
