@@ -1,13 +1,110 @@
-<form action="https://formspree.io/f/ton_id_formspree" method="POST" class="contact-form">
-  <label for="name">Nom :</label>
-  <input type="text" id="name" name="name" required>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire pédagogique avec Popup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
 
-  <label for="email">Email :</label>
-  <input type="email" id="email" name="email" required>
+    .contact-form {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
 
-  <label for="message">Message :</label>
-  <textarea id="message" name="message" rows="5" required></textarea>
+    .contact-form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-  <button type="submit" class="btn">Envoyer</button>
-</form>
-  <link rel="stylesheet" href="style.css">
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #6a0dad;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #4b0082;
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Formulaire -->
+  <form id="contactForm" class="contact-form">
+    <label for="name">Nom :</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message :</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit" class="btn">Envoyer</button>
+  </form>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <p>✅ Merci pour votre message.<br> notre equipe prendra en charge votre demande .</p>
+      <button id="closePopup" class="btn">Fermer</button>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const popup = document.getElementById("popup");
+    const closeBtn = document.getElementById("closePopup");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); 
+      popup.style.display = "flex"; // affiche le popup
+      form.reset(); // vide le formulaire
+    });
+
+    closeBtn.addEventListener("click", () => {
+      popup.style.display = "none"; // ferme le popup
+    });
+  </script>
+
+</body>
+</html>
